@@ -1,0 +1,10 @@
+#flex_sign{
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.open{
+  height: 200px;
+  width: 70vw;
+}

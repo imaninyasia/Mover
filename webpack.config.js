@@ -22,7 +22,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'jwt-bcrypt-demo',
+      title: 'MoveWatch',
       xhtml: true,
       inject: false,
       template: require('html-webpack-template'),
@@ -32,6 +32,9 @@ module.exports = {
       allChunks: true
     })
   ],
+    devServer: {
+      historyApiFallback: true
+  },
 
   module : {
     include: path.join(__dirname, 'src'),

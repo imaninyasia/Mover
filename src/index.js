@@ -6,9 +6,9 @@ import Landing from './Routes/Landing/Landing.jsx';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 ReactDOM.render(<Router history={browserHistory}>
-        <Route path='/app' component={Landing}></Route>
-        <Route path='/app/signup_login' component={Signup_Login}></Route>
-        <Route path='/app/movewatch' component={Dashboard}></Route>
+        <Route path='/' component={Landing}></Route>
+        <Route path='/signup_login' component={Signup_Login}></Route>
+        <Route path='/movewatch' component={Dashboard}></Route>
       </Router>, document.querySelector('#root-container'));
 
 //This is just a change

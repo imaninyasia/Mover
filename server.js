@@ -13,9 +13,13 @@ const PORT        = process.argv[2] || process.env.port || 3000;
 app.use(logger('dev'));
 
 app.use(bodyParser.json());
+//zellwk.com/blog//crud-express-mongodb
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'dist')));
-app.use(expressJWT({secret: process.env.SECRET}).unless({path: ['/favicon.ico', '/user/login', '/user/signup', '/app', '/app/signup_login']}));
+app.use(expressJWT({secret: process.env.SECRET}).unless({path: ['/favicon.ico', '/user/login', '/user/signup', '/', '/signup_login']}));
+// app.get('/', (req, res)=>{
 
+// })
 const history = require('connect-history-api-fallback');
 app.use(history());
 
