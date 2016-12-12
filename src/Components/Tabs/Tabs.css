@@ -10,6 +10,8 @@
 .tab{
   height: 28px;
   width: 120px;
+  margin-top: 20px;
+  padding: 8px;
   display: inline-block;
   border: 1px solid black;
 
@@ -17,4 +19,13 @@
 .tab p {
   font-size: 25px;
   margin: 0;
+}
+#container_Tab{
+  height: 70vh;
+  width: 70vw;
+}
+.open{
+  height: 70vh;
+  width: 70vw;
+  border: 2px dotted black;
 }

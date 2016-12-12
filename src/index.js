@@ -11,8 +11,4 @@ ReactDOM.render(<Router history={browserHistory}>
         <Route path='/movewatch' component={Dashboard}></Route>
       </Router>, document.querySelector('#root-container'));
 
-//This is just a change
-//another one
-//jogiwh
 
-//changing

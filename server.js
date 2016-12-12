@@ -15,8 +15,6 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 //zellwk.com/blog//crud-express-mongodb
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(path.join(__dirname, 'dist')));
-app.use(expressJWT({secret: process.env.SECRET}).unless({path: ['/favicon.ico', '/user/login', '/user/signup', '/', '/signup_login']}));
 // app.get('/', (req, res)=>{
 
 // })
@@ -27,6 +25,10 @@ const userRouter = require('./routes/user.js');
 const apiRouter = require('./routes/api.js');
 app.use('/user', userRouter);
 app.use('/api', apiRouter);
+const movieRouter = require('./routes/api.js');
+//app.use movies
+app.use(express.static(path.join(__dirname, 'dist')));
+app.use(expressJWT({secret: process.env.SECRET}).unless({path: ['/favicon.ico', '/user/login', '/user/signup', '/', '/signup_login']}));
 
 
 app.listen(PORT, () => {console.log('server running on port ', PORT)});

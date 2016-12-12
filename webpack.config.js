@@ -32,6 +32,7 @@ module.exports = {
       allChunks: true
     })
   ],
+  //just added this
     devServer: {
       historyApiFallback: true
   },

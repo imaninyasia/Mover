@@ -4,6 +4,7 @@ import Login from '../Login/Login.jsx';
 import Signup from '../Signup/Signup.jsx';
 import TestLogin from '../TestLogin/TestLogin.jsx';
 
+
 export default class App extends Component {
   constructor() {
     super();
@@ -23,7 +24,6 @@ export default class App extends Component {
 
   trackSignupForm(e) {
     let fieldsArr = e.target.parentElement.childNodes
-    //skylar pls remember to consolelog fieldsArr
     this.setState({
       signupForm: {
         username: fieldsArr[0].value,
@@ -114,6 +114,7 @@ export default class App extends Component {
     }, () => {
       console.log('after logout ', this.state)
     })
+
   }
 
   render() {

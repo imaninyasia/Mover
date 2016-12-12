@@ -23,6 +23,9 @@ function authenticate(req, res, next) {
       const match = bcrypt.compareSync(req.body.password, data.password);
       if (match) {
         const myToken = jwt.sign({ username: req.body.username }, process.env.SECRET);
+        res.cookie('myToken', myToken);
+        console.log(res.cookie('myToken', myToken))
+        //update user set token=mytoken
         res.status(200).json(myToken);
       } else {
         res.status(500).send('fuck u fite me irl');
