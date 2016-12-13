@@ -15,17 +15,14 @@ function createUser(req, res, next) {
   .catch(error => console.log(error))
 }
 
-function authenticate(req, res, next) {
+function login(req, res, next) {
   console.log(req.body.password)
   db.one('SELECT * FROM users WHERE username = $/username/;', req.body)
     .then((data) => {
       console.log(data.password)
       const match = bcrypt.compareSync(req.body.password, data.password);
       if (match) {
-        const myToken = jwt.sign({ username: req.body.username }, process.env.SECRET);
-        res.cookie('myToken', myToken);
-        console.log(res.cookie('myToken', myToken))
-        //update user set token=mytoken
+        const myToken = jwt.sign({ username: req.body.username, userID: data.user_id }, process.env.SECRET);
         res.status(200).json(myToken);
       } else {
         res.status(500).send('fuck u fite me irl');
@@ -35,7 +32,20 @@ function authenticate(req, res, next) {
   .catch(error => console.log(error))
 }
 
+function authenticate(req, res, next) {
+  try {
+    const user = jwt.verify(req.body.token, process.env.SECRET);
+    console.log(user);
+    res.userData = user;
+    next();
+  } catch(err) {
+    console.log(err);
+    next(err);
+  }
+}
+
 module.exports = {
   createUser,
+  login,
   authenticate,
 }

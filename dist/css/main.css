@@ -37,6 +37,10 @@
   width: 70vw;
   border: 2px dotted black;
 }
+select{
+  width: 120px;
+  height: 30px;
+}
 *{
   margin: 0;
 }

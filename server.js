@@ -23,12 +23,12 @@ app.use(history());
 
 const userRouter = require('./routes/user.js');
 const apiRouter = require('./routes/api.js');
+const moveRouter = require('./routes/api.js');
 app.use('/user', userRouter);
 app.use('/api', apiRouter);
-const movieRouter = require('./routes/api.js');
-//app.use movies
+app.use('/move', moveRouter);
 app.use(express.static(path.join(__dirname, 'dist')));
-app.use(expressJWT({secret: process.env.SECRET}).unless({path: ['/favicon.ico', '/user/login', '/user/signup', '/', '/signup_login']}));
+app.use(expressJWT({secret: process.env.SECRET}).unless({path: ['/favicon.ico', '/user/login', '/user/signup', '/', '/signup_login', '/move/item/save']}));
 
 
 app.listen(PORT, () => {console.log('server running on port ', PORT)});

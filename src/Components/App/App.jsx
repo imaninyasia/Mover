@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Login from '../Login/Login.jsx';
 import Signup from '../Signup/Signup.jsx';
 import TestLogin from '../TestLogin/TestLogin.jsx';
-
+import { browserHistory } from 'react-router';
 
 export default class App extends Component {
   constructor() {
@@ -26,8 +26,8 @@ export default class App extends Component {
     let fieldsArr = e.target.parentElement.childNodes
     this.setState({
       signupForm: {
-        username: fieldsArr[0].value,
-        password: fieldsArr[1].value
+        username: fieldsArr[1].value,
+        password: fieldsArr[2].value
       }
     }, () => {
       console.log(this.state)
@@ -38,8 +38,8 @@ export default class App extends Component {
     let fieldsArr = e.target.parentElement.childNodes
     this.setState({
       loginForm: {
-        username: fieldsArr[0].value,
-        password: fieldsArr[1].value
+        username: fieldsArr[1].value,
+        password: fieldsArr[2].value
       }
     }, () => {
       console.log(this.state)
@@ -81,17 +81,18 @@ export default class App extends Component {
       })
     })
     .then(r => r.json())
-    .then((data) => {
+    .then((token) => {
+      console.log(token)
       this.setState({
-        currentToken: data,
+        currentToken: token,
         loginForm: {
           username: '',
           password: ''
         }
       }, () => {
-        console.log(this.state)
+        console.log("state is ", this.state)
       })
-    })
+    }).then(()=> browserHistory.push('/movewatch'))
   }
 
   testLogin() {
@@ -113,7 +114,8 @@ export default class App extends Component {
       currentToken: '',
     }, () => {
       console.log('after logout ', this.state)
-    })
+    });
+    browserHistory.push('/')
 
   }
 

@@ -9,8 +9,8 @@ export default class Login extends Component {
       <h1>Login</h1>
         <input onChange={this.props.trackLoginForm} type="text" placeholder="username"/>
         <input onChange={this.props.trackLoginForm} type="text" placeholder="password"/>
-        <button onClick={this.props.postLogin}><Link style={{textDecoration: 'none', color: 'black'}} to="/moveWatch">Login</Link></button>
-        <button onClick={this.props.logout}><Link style={{textDecoration: 'none', color: 'black'}} to="/">Logout</Link></button>
+        <button onClick={this.props.postLogin}>Login</button>
+        <button onClick={this.props.logout}>Logout</button>
 
       </div>
     )
