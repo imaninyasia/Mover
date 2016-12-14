@@ -9,7 +9,7 @@ CREATE TABLE users(
   user_id SERIAL PRIMARY KEY,
   username VARCHAR NOT NULL UNIQUE,
   password VARCHAR NOT NULL UNIQUE,
-  userToken INT
+  userToken VARCHAR
 );
 
 CREATE TABLE secretstuff(
@@ -20,15 +20,15 @@ CREATE TABLE secretstuff(
 
 CREATE TABLE rooms(
   room_id INT PRIMARY KEY,
-  user_id INT REFERENCES users(user_id)
+  username VARCHAR
 );
 
 CREATE TABLE items(
   description VARCHAR NOT NULL,
   link VARCHAR,
   price VARCHAR NOT NULL,
-  room_id INT REFERENCES rooms(room_id),
-  user_id INT REFERENCES users(user_id)
+  room_id INT,
+  username VARCHAR
 );
 
 

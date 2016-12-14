@@ -20,6 +20,7 @@ export default class App extends Component {
       },
       currentToken: ''
     }
+    this.postLogin = this.postLogin.bind(this);
   }
 
   trackSignupForm(e) {
@@ -69,6 +70,7 @@ export default class App extends Component {
   }
 
   postLogin() {
+     localStorage.setItem('userName', this.state.loginForm.username)
     console.log('clicked')
     fetch('/user/login', {
       method: 'POST',
@@ -82,31 +84,42 @@ export default class App extends Component {
     })
     .then(r => r.json())
     .then((token) => {
-      console.log(token)
+      localStorage.setItem('token', token)
       this.setState({
         currentToken: token,
         loginForm: {
           username: '',
-          password: ''
+          password: '',
+
         }
       }, () => {
-        console.log("state is ", this.state)
+
       })
-    }).then(()=> browserHistory.push('/movewatch'))
+    })
+    const checklogin = localStorage.getItem('userName')
+    if (checklogin != localStorage.getItem('userName')){
+      console.log('not logged in')
+    }
+    if (checklogin===localStorage.getItem('userName')){
+      browserHistory.push('/movewatch')
+    }
+
+console.log("username is ", localStorage.getItem('userName'))
   }
 
   testLogin() {
-    console.log(this.state.currentToken)
-    fetch('/api', {
-      method: 'GET',
-      headers: {
-        'content-type': 'application/json',
-        'Authorization': `Bearer ` + this.state.currentToken
-      }
-    })
-    .then((data) => {
-      console.log(data)
-    })
+
+ console.log("Test login ", localStorage.getItem('userName'))
+    // fetch('/api', {
+    //   method: 'GET',
+    //   headers: {
+    //     'content-type': 'application/json',
+    //     'Authorization': `Bearer ` + this.state.currentToken
+    //   }
+    // })
+    // .then((data) => {
+    //   console.log(data)
+    // })
   }
 
   logout() {
@@ -115,22 +128,31 @@ export default class App extends Component {
     }, () => {
       console.log('after logout ', this.state)
     });
+    localStorage.removeItem('userName');
+    localStorage.removeItem('token');
     browserHistory.push('/')
-
+    console.log('logged out')
+  }
+  test(){
+    console.log(test)
+     console.log("Test login ", localStorage.getItem('userName'))
+    return localStorage.getItem('token')
   }
 
   render() {
     return(
       <div>
+      <button onClick={this.test.bind(this)}>test</button>
         <Signup
           trackSignupForm={this.trackSignupForm.bind(this)}
           postSignup={this.postSignup.bind(this)}
         />
         <Login
           trackLoginForm={this.trackLoginForm.bind(this)}
-          postLogin={this.postLogin.bind(this)}
           logout={this.logout.bind(this)}
         />
+        <button  onClick={this.postLogin} >Login</button>
+
         <TestLogin
           testLogin={this.testLogin.bind(this)}
         />

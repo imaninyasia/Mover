@@ -1,10 +1,11 @@
 const userRouter = require('express').Router()
-const { createUser, login } = require('../models/user.js')
+const { createUser, login, createToken } = require('../models/user.js')
 
 userRouter.route('/signup')
-  .post(createUser, (req, res, next) => res.json({message: 'user succesfully signed up'}));
+  .post(createUser, (req, res) => res.json({message: 'user succesfully signed up'}));
 
 userRouter.route('/login')
-  .post( login, (req, res, next) => res.json({message: 'user succesfully logged in'}));
+  .post( login, (req, res) => res.json({message: 'user succesfully logged in'}));
+
 
 module.exports = userRouter;

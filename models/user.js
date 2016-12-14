@@ -32,20 +32,8 @@ function login(req, res, next) {
   .catch(error => console.log(error))
 }
 
-function authenticate(req, res, next) {
-  try {
-    const user = jwt.verify(req.body.token, process.env.SECRET);
-    console.log(user);
-    res.userData = user;
-    next();
-  } catch(err) {
-    console.log(err);
-    next(err);
-  }
-}
 
 module.exports = {
   createUser,
   login,
-  authenticate,
 }

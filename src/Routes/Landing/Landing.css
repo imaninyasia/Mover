@@ -6,11 +6,15 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  height: 97vh;
+  height: 100vh;
   text-align: center;
 }
-
+#background{
+  background-color:#FFC1AA;
+}
 header{
+background-color: #6C3D2C;
+color: #E2C6BB;
 width: 100vw;
 height: 110px;
 line-height: 2.5;
@@ -30,12 +34,20 @@ align-self: flex-end;
   margin-right: 30px;
   height: 23px;
 }
+#one{
+  background-color: #AA5839;
+}
+#dark{
+ background-color: #803215
+}
 .Land_art{
+
   display: block;
   width: 100vw;
   height: 36vh;
   margin-bottom: -40px;
-  border: 2px solid black;
+    line-height: 2;
+
 }
 #two{
   display:inline-block;
@@ -52,12 +64,16 @@ img {
   margin-top: 60px
 }
 #get_started{
+  background-color: #551700;
   height: 100px;
   width: 200px;
   border: 2px solid black;
   border-radius: 20px;
   display: inline-block;
   float: right;
+}
+#get_started a {
+  color: #E2C6BB;
 }
 .text{
   display:inline-block;
