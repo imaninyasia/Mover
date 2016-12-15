@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Login from '../Login/Login.jsx';
 import Signup from '../Signup/Signup.jsx';
-import TestLogin from '../TestLogin/TestLogin.jsx';
+
 import { browserHistory } from 'react-router';
 
 export default class App extends Component {
@@ -142,7 +142,7 @@ console.log("username is ", localStorage.getItem('userName'))
   render() {
     return(
       <div>
-      <button onClick={this.test.bind(this)}>test</button>
+
         <Signup
           trackSignupForm={this.trackSignupForm.bind(this)}
           postSignup={this.postSignup.bind(this)}
@@ -152,10 +152,6 @@ console.log("username is ", localStorage.getItem('userName'))
           logout={this.logout.bind(this)}
         />
         <button  onClick={this.postLogin} >Login</button>
-
-        <TestLogin
-          testLogin={this.testLogin.bind(this)}
-        />
       </div>
     )
   }

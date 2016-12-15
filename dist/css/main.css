@@ -12,6 +12,15 @@
   position: absolute;
   font-size: 20px;
 }
+#itemList p {
+  display: inline-block;
+}
+#showItems{
+display: inline-block;
+}
+#showPrices{
+  display: inline-block;
+}
 .add{
   height: 28px;
   width: 28px;

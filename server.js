@@ -26,8 +26,8 @@ const moveRouter = require('./routes/moveWatch.js');
 app.use('/user', userRouter);
 app.use('/api', apiRouter);
 app.use('/move', moveRouter);
-app.use(expressJWT({secret: process.env.SECRET}).unless({path: ['/favicon.ico', '/user/login', '/user/signup', '/', '/signup_login', '/move/item/save', '/move/item/get',
-'move/item/delete', '/move/save', '/user/token', '/move/retrieve']}));
+app.use(expressJWT({secret: process.env.SECRET}).unless({path: ['/favicon.ico', '/user/login', '/user/signup', '/', '/signup_login', '/move/item/save', '/move/items/get/:username',
+'/move/item/delete/:username', '/move/save', '/user/token', '/move/retrieve']}));
 
 app.get('*', (req,res)=>{
   res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import update from 'react-addons-update';
+import ItemList from '../itemList/itemList.jsx'
 import './Tabs.css';
 
 export default class Tabs extends Component {
@@ -9,6 +11,7 @@ export default class Tabs extends Component {
                   room: '',
                   kitchen: false,
                   rooms: [],
+                  items: []
                   };
     this.handleChangeDesc = this.handleChangeDesc.bind(this);
     this.handleChangePrice = this.handleChangePrice.bind(this);
@@ -30,11 +33,20 @@ console.log(this.state)
     console.log(document.getElementsByClassName('tab'))
   }
 
- componentDidMount(){
-  this.getitems
+  componentDidMount(){
+    this.getitems();
+  }
+
+ putItemInState(value){
+let something = value.map((item)=> item)
+  this.setState({
+    items: value
+  })
+
  }
  getitems(){
-          fetch('/move/retrieve', {
+  let user = localStorage.getItem('userName')
+    fetch('/move/items/get/'+ user, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -45,12 +57,10 @@ console.log(this.state)
     .then((data) => data.json())
     .then((data)=> {
       let value = data
-      console.log(value[0])
-      this.setState({
-        rooms: value[0].room_id
-      })
+      // this.putItemInState(value);
+      this.setState({ items: data });
     })
-    console.log(this.state)
+
 
     }
 
@@ -90,10 +100,15 @@ postItem(){
       console.log(data)
     });
 
+
+this.getitems();
+
   }
 
-  deleteItem(){
-      fetch('/move/item/delete', {
+  deleteItem(e){
+    console.log()
+    let user = localStorage.getItem('userName')
+      fetch('/move/item/delete/'+user, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -101,8 +116,7 @@ postItem(){
       },
       body: JSON.stringify({
         description: this.state.item_desc,
-        price: this.state.price,
-        room: this.state.room,
+        description: this.state.room,
         username: localStorage.getItem('userName')
       })
     })
@@ -116,9 +130,8 @@ postItem(){
   render(){
     return(
       <article id="container_Tab">
-          <h1>{this.state.room}</h1>
-       <button onClick={this.getitems.bind(this)}>get items</button>
-      <div className='tab'>
+      <h3>Welcome {localStorage.getItem('userName')}</h3>
+      <div style={{backgroundColor: '#E2C6BB'}} className='tab'>
        <select onChange={this.roomHandle} ref={(input)=>{this.room = input}} name="room" >
           <option value="#">Select a room</option>
           <option value="1">Kitchen</option>
@@ -136,7 +149,9 @@ postItem(){
         <input name="price" type="text" value={this.state.price} onChange={this.handleChangePrice} placeholder="price"/>
         <input onClick={this.postItem.bind(this)} type="submit" value="Submit"/>
 <div id="data_container">
-
+  <ItemList
+    items={this.state.items}
+  />
 </div>
       </div>
       </article>
