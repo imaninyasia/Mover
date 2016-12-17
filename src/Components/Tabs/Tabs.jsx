@@ -33,7 +33,7 @@ console.log(this.state)
     console.log(document.getElementsByClassName('tab'))
   }
 
-  componentDidMount(){
+  componentWillMount(){
     this.getitems();
   }
 
