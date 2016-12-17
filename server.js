@@ -8,7 +8,7 @@ const jwt         = require('jsonwebtoken');
 const expressJWT  = require('express-jwt');
 const bcrypt      = require('bcryptjs');
 const app         = express();
-const PORT        = process.argv[2] || process.env.port || 3000;
+const PORT        = process.argv[2] || process.env.PORT || 3000;
 
 app.use(logger('dev'));
 
