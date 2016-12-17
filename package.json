@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "MoveWatch",
   "main": "server.js",
-
   "scripts": {
     "clean": "rm -rf dist && rm -rf node_modules",
     "start": "node server.js",
@@ -24,7 +23,12 @@
     "jsonwebtoken": "^7.1.9",
     "morgan": "^1.7.0",
     "path": "^0.12.7",
-    "pg-promise": "^5.4.0"
+    "pg-promise": "^5.4.0",
+    "react-addons-update": "^15.4.1",
+    "react-dropdown": "^1.2.0",
+    "react": "^15.3.0",
+    "react-router": "^3.0.0",
+    "react-router-redux": "^4.0.7"
   },
   "devDependencies": {
     "babel": "^6.5.2",
@@ -39,11 +43,6 @@
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.22.0",
     "html-webpack-template": "^5.0.0",
-    "react-addons-update": "^15.4.1",
-    "react-dropdown": "^1.2.0",
-    "react": "^15.3.0",
-    "react-router": "^3.0.0",
-    "react-router-redux": "^4.0.7",
     "postcss-loader": "^1.1.1",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
