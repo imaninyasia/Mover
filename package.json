@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "MoveWatch",
   "main": "server.js",
+  "engines": {
+    "node": "6.6.0",
+    "npm": "3.10.7"
+  },
   "scripts": {
     "clean": "rm -rf dist && rm -rf node_modules",
     "start": "node server.js",
