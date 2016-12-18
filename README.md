@@ -14,8 +14,10 @@ TECHNOLOGIES USED
 - Express.js
 - CSS
 - PostgreSQL
+**Approach**
+Since this was the first fullstack application I created on my own with React, I started off by getting the user auth working. I made sure that certain paths were blocked with jwt, like the dashboard. Once that was cleaned up, I started implementing the apps functionalities, like the login page, and allowing links to browserHistory.push() to whatever page necessary. 
 
-unsolved issues
+**unsolved issues**
 I currently have an issue where i'd like the plus sign on the dashboard page to create more tabs which would in turn open the respective item list for said tab. But that doesn't impede on the satisfaction of the project requirements. 
 
 [landing page Wireframe](https://wireframe.cc/X7rCTC)
