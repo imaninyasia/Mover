@@ -14,6 +14,7 @@ TECHNOLOGIES USED
 - Express.js
 - CSS
 - PostgreSQL
+
 **Approach**
 Since this was the first fullstack application I created on my own with React, I started off by getting the user auth working. I made sure that certain paths were blocked with jwt, like the dashboard. Once that was cleaned up, I started implementing the apps functionalities, like the login page, and allowing links to browserHistory.push() to whatever page necessary. 
 
