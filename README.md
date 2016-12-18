@@ -1,6 +1,7 @@
 **MOVEWATCH**
 
-```npm install
+```
+npm install
 ```
 This application is meant to assist people when moving out of their current homes. 
 
