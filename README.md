@@ -21,5 +21,5 @@ I currently have an issue where i'd like the plus sign on the dashboard page to 
 [landing page Wireframe](https://wireframe.cc/X7rCTC)
 [dashboard wireframe](https://wireframe.cc/Iuz1xy)
 
-![Landing page](http://imgur.com/qFF9bg2)
+![Landing page](http://i.imgur.com/qFF9bg2.png)
 
